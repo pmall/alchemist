@@ -1,0 +1,35 @@
+{
+    "name": "ellipse/resolving",
+    "type": "library",
+    "description": "Set of utilities for resolving callables and class instances",
+    "keywords": [
+        "psr-11",
+        "container",
+        "dependency-injection"
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/ellipsephp/resolving",
+    "support": {
+        "issues": "https://github.com/ellipsephp/resolving/issues",
+        "source": "https://github.com/ellipsephp/resolving"
+    },
+    "authors": [
+        {
+            "name": "pmall",
+            "email": "pierre.mallinjoud@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "psr/container": "^1.0"
+    },
+    "require-dev": {
+        "kahlan/kahlan": "^4.0",
+        "eloquent/phony-kahlan": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ellipse\\Resolving\\": "src"
+        }
+    }
+}
