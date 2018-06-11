@@ -2,7 +2,7 @@
 
 namespace Ellipse\Resolving\Pools;
 
-use Ellipse\Resolving\Arguments;
+use Ellipse\Resolving\ArgumentList;
 
 final class CompositeArgumentsPool implements ArgumentsPoolInterface
 {
@@ -14,8 +14,7 @@ final class CompositeArgumentsPool implements ArgumentsPoolInterface
     private $pools;
 
     /**
-     * Set up a composite arguments pool object with the given list of arguments
-     * pools.
+     * Set up a composite arguments pool with the given list of arguments pools.
      *
      * @param \Ellipse\Resolving\Pools\ArgumentsPoolInterface[] $pools
      */
@@ -25,31 +24,32 @@ final class CompositeArgumentsPool implements ArgumentsPoolInterface
     }
 
     /**
-     * Sequentially bind the unbound parameters using the arguments pools in the
-     * order they are listed.
+     * Sequentially bind the unbound parameters to arguments using the arguments
+     * pools.
      *
-     * @param \ReflectionParameter[]        $parameters
-     * @return \Ellipse\Resolving\Arguments
+     * @param \ReflectionParameter[] $parameters
+     * @return \Ellipse\Resolving\ArgumentList
      */
-    public function arguments(array $parameters): Arguments
+    public function arguments(array $parameters): ArgumentList
     {
         return array_reduce($this->pools, function ($arguments, $pool) use ($parameters) {
-            $unbound = $arguments->unbound($parameters);
+            $diff = $this->diff($arguments, $parameters);
 
-            $new = $pool->arguments($unbound);
+            $new = $pool->arguments($diff);
 
-            return $arguments->merge($new);
-        }, new Arguments);
+            // not using array_merge because it won't merge integer keys.
+            return new ArgumentList(iterator_to_array($arguments) + iterator_to_array($new));
+        }, new ArgumentList);
     }
 
     /**
      * Return the unbound parameters from the given list of parameters.
      *
-     * @param \Ellipse\Resolving\Arguments  $arguments
-     * @param \ReflectionParameter[]        $parameters
+     * @param \Ellipse\Resolving\ArgumentList   $arguments
+     * @param \ReflectionParameter[]            $parameters
      * @return array
      */
-    private function diff(Arguments $arguments, array $parameters): array
+    private function diff(ArgumentList $arguments, array $parameters): array
     {
         $diff = array_filter($parameters, function ($parameter) use ($arguments) {
             return ! $arguments->isBound($parameter);

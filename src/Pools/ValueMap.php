@@ -2,7 +2,7 @@
 
 namespace Ellipse\Resolving\Pools;
 
-use Ellipse\Resolving\Arguments;
+use Ellipse\Resolving\ArgumentList;
 
 final class ValueMap implements ArgumentsPoolInterface
 {
@@ -14,8 +14,8 @@ final class ValueMap implements ArgumentsPoolInterface
     private $map;
 
     /**
-     * Set up a value map object with the given associative array of name to
-     * value pairs.
+     * Set up a value map with the given associative array of name to value
+     * pairs.
      *
      * @param array $map
      */
@@ -27,12 +27,12 @@ final class ValueMap implements ArgumentsPoolInterface
     /**
      * Bind parameters to values associated with their names.
      *
-     * @param \ReflectionParameter[]        $parameters
-     * @return \Ellipse\Resolving\Arguments
+     * @param \ReflectionParameter[] $parameters
+     * @return \Ellipse\Resolving\ArgumentList
      */
-    public function arguments(array $parameters): Arguments
+    public function arguments(array $parameters): ArgumentList
     {
-        $arguments = new Arguments;
+        $arguments = new ArgumentList;
 
         foreach ($parameters as $parameter) {
             $name = $parameter->getName();

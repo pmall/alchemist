@@ -2,7 +2,7 @@
 
 namespace Ellipse\Resolving\Pools;
 
-use Ellipse\Resolving\Arguments;
+use Ellipse\Resolving\ArgumentList;
 
 abstract class AbstractArgumentsPoolDecorator implements ArgumentsPoolInterface
 {
@@ -26,10 +26,10 @@ abstract class AbstractArgumentsPoolDecorator implements ArgumentsPoolInterface
     /**
      * Proxy the delegate.
      *
-     * @param \ReflectionParameter[]        $parameters
-     * @return \Ellipse\Resolving\Arguments
+     * @param \ReflectionParameter[] $parameters
+     * @return \Ellipse\Resolving\ArgumentList
      */
-    public function arguments(array $parameters): Arguments
+    public function arguments(array $parameters): ArgumentList
     {
         return $this->delegate->arguments($parameters);
     }

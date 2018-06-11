@@ -23,18 +23,19 @@ describe('ValueMap', function () {
 
     describe('->arguments()', function () {
 
-        it('should bind parameters to values associated with their names', function () {
+        it('should bind parameters to values associated with their names.', function () {
 
             $p1 = parameter(0);
             $p2 = parameter(1, ['name' => 'name']);
             $p3 = parameter(2);
 
-            $ps = [$p1, $p2, $p3];
+            $test = $this->strategy->arguments([$p1, $p2, $p3]);
 
-            $test = $this->strategy->arguments($ps);
+            expect($test->isBound($p1))->toBeFalsy();
+            expect($test->isBound($p2))->toBeTruthy();
+            expect($test->isBound($p3))->toBeFalsy();
 
-            expect($test->unbound($ps))->toEqual([$p1, $p3]);
-            expect($test->value($p2))->toEqual('value');
+            expect($test->argument($p2))->toEqual('value');
 
         });
 

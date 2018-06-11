@@ -27,12 +27,13 @@ describe('NullValues', function () {
             $p2 = parameter(1, ['type' => type(true)]);
             $p3 = parameter(2, ['type' => type(false)]);
 
-            $ps = [$p1, $p2, $p3];
+            $test = $this->strategy->arguments([$p1, $p2, $p3]);
 
-            $test = $this->strategy->arguments($ps);
+            expect($test->isBound($p1))->toBeFalsy();
+            expect($test->isBound($p2))->toBeTruthy();
+            expect($test->isBound($p3))->toBeFalsy();
 
-            expect($test->unbound($ps))->toEqual([$p1, $p3]);
-            expect($test->value($p2))->toBeNull();
+            expect($test->argument($p2))->toBeNull();
 
         });
 

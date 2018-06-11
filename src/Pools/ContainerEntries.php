@@ -4,7 +4,7 @@ namespace Ellipse\Resolving\Pools;
 
 use Psr\Container\ContainerInterface;
 
-use Ellipse\Resolving\Arguments;
+use Ellipse\Resolving\ArgumentList;
 
 final class ContainerEntries implements ArgumentsPoolInterface
 {
@@ -16,9 +16,9 @@ final class ContainerEntries implements ArgumentsPoolInterface
     private $container;
 
     /**
-     * Set up a container entries object with the given container.
+     * Set up a container entries with the given container.
      *
-     * @param \Psr\Container\ContainerInterface
+     * @param \Psr\Container\ContainerInterface $container
      */
     public function __construct(ContainerInterface $container)
     {
@@ -26,15 +26,15 @@ final class ContainerEntries implements ArgumentsPoolInterface
     }
 
     /**
-     * Bind parameters with a class type hint to container entries with this
-     * class name as identifier.
+     * Bind parameters with a class type hint to container entries with those
+     * class names as identifier.
      *
-     * @param \ReflectionParameter[]        $parameters
-     * @return \Ellipse\Resolving\Arguments
+     * @param \ReflectionParameter[] $parameters
+     * @return \Ellipse\Resolving\ArgumentList
      */
-    public function arguments(array $parameters): Arguments
+    public function arguments(array $parameters): ArgumentList
     {
-        $arguments = new Arguments;
+        $arguments = new ArgumentList;
 
         foreach ($parameters as $parameter) {
             $type = $parameter->getType();

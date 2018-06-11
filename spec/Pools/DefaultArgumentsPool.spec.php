@@ -42,8 +42,6 @@ describe('DefaultArgumentsPool', function () {
             $p6 = parameter(5, ['type' => type(true, 'SomeClass5')]);   // null
             $p7 = parameter(6, ['default' => 'default']);               // default
 
-            $ps = [$p1, $p2, $p3, $p4, $p5, $p6, $p7];
-
             $this->container->has->with('SomeClass1')->returns(true);
             $this->container->has->with('SomeClass2')->returns(true);
             $this->container->has->with('SomeClass3')->returns(false);
@@ -51,16 +49,23 @@ describe('DefaultArgumentsPool', function () {
             $this->container->has->with('SomeClass5')->returns(false);
             $this->container->get->with('SomeClass2')->returns($this->instance2);
 
-            $test = $this->strategy->arguments($ps);
+            $test = $this->strategy->arguments([$p1, $p2, $p3, $p4, $p5, $p6, $p7]);
 
-            expect($test->isBound($ps))->toEqual([]);
-            expect($test->value($p1))->toEqual('v1');
-            expect($test->value($p2))->toEqual($this->instance1);
-            expect($test->value($p3))->toEqual($this->instance2);
-            expect($test->value($p4))->toEqual('v2');
-            expect($test->value($p5))->toEqual('v3');
-            expect($test->value($p6))->toBeNull();
-            expect($test->value($p7))->toEqual('default');
+            expect($test->isBound($p1))->toBeTruthy();
+            expect($test->isBound($p2))->toBeTruthy();
+            expect($test->isBound($p3))->toBeTruthy();
+            expect($test->isBound($p4))->toBeTruthy();
+            expect($test->isBound($p5))->toBeTruthy();
+            expect($test->isBound($p6))->toBeTruthy();
+            expect($test->isBound($p7))->toBeTruthy();
+
+            expect($test->argument($p1))->toEqual('v1');
+            expect($test->argument($p2))->toEqual($this->instance1);
+            expect($test->argument($p3))->toEqual($this->instance2);
+            expect($test->argument($p4))->toEqual('v2');
+            expect($test->argument($p5))->toEqual('v3');
+            expect($test->argument($p6))->toBeNull();
+            expect($test->argument($p7))->toEqual('default');
 
         });
 

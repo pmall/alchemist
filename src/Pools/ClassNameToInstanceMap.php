@@ -2,7 +2,7 @@
 
 namespace Ellipse\Resolving\Pools;
 
-use Ellipse\Resolving\Arguments;
+use Ellipse\Resolving\ArgumentList;
 
 final class ClassNameToInstanceMap implements ArgumentsPoolInterface
 {
@@ -14,8 +14,8 @@ final class ClassNameToInstanceMap implements ArgumentsPoolInterface
     private $map;
 
     /**
-     * Set up a class name to instance map object with the given associative
-     * array of class name to instance pairs.
+     * Set up a class name to instance map with the given associative array of
+     * class name to instance pairs.
      *
      * @param array $map
      */
@@ -25,15 +25,15 @@ final class ClassNameToInstanceMap implements ArgumentsPoolInterface
     }
 
     /**
-     * Bind parameters with a class type hint to instances associated with this
-     * class name.
+     * Bind parameters with a class type hint to instances associated with those
+     * class names.
      *
-     * @param \ReflectionParameter[]        $parameters
-     * @return \Ellipse\Resolving\Arguments
+     * @param \ReflectionParameter[] $parameters
+     * @return \Ellipse\Resolving\ArgumentList
      */
-    public function arguments(array $parameters): Arguments
+    public function arguments(array $parameters): ArgumentList
     {
-        $arguments = new Arguments;
+        $arguments = new ArgumentList;
 
         foreach ($parameters as $parameter) {
             $type = $parameter->getType();

@@ -7,7 +7,7 @@ use Psr\Container\ContainerInterface;
 final class DefaultArgumentsPool extends AbstractArgumentsPoolDecorator
 {
     /**
-     * Set up a default arguments pool object.
+     * Set up a default arguments pool.
      *
      * @param \Psr\Container\ContainerInterface $container
      * @param array                             $instances
@@ -18,7 +18,7 @@ final class DefaultArgumentsPool extends AbstractArgumentsPoolDecorator
         parent::__construct(new CompositeArgumentsPool([
             new ClassNameToInstanceMap($instances),
             new ContainerEntries($container),
-            new Placeholders($placeholders),
+            new PlaceholderList($placeholders),
             new DefaultValues,
             new NullValues,
         ]));

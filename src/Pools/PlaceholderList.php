@@ -2,9 +2,9 @@
 
 namespace Ellipse\Resolving\Pools;
 
-use Ellipse\Resolving\Arguments;
+use Ellipse\Resolving\ArgumentList;
 
-final class Placeholders implements ArgumentsPoolInterface
+final class PlaceholderList implements ArgumentsPoolInterface
 {
     /**
      * The list of placeholders.
@@ -14,7 +14,7 @@ final class Placeholders implements ArgumentsPoolInterface
     private $placeholders;
 
     /**
-     * Set up a placeholders object with the given list of placeholders.
+     * Set up a placeholder list the given placeholders.
      *
      * @param array $placeholders
      */
@@ -27,12 +27,12 @@ final class Placeholders implements ArgumentsPoolInterface
      * Sequentially bind parameters to the next placeholder until the list is
      * exhausted.
      *
-     * @param \ReflectionParameter[]        $parameters
-     * @return \Ellipse\Resolving\Arguments
+     * @param \ReflectionParameter[] $parameters
+     * @return \Ellipse\Resolving\ArgumentList
      */
-    public function arguments(array $parameters): Arguments
+    public function arguments(array $parameters): ArgumentList
     {
-        $arguments = new Arguments;
+        $arguments = new ArgumentList;
 
         $placeholders = $this->placeholders;
 
