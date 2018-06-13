@@ -1,22 +1,22 @@
 <?php declare(strict_types=1);
 
-namespace Ellipse\Resolving\Pools;
+namespace Quanta\Injection\Pools;
 
-use Ellipse\Resolving\ArgumentList;
+use Quanta\Injection\ArgumentList;
 
 abstract class AbstractArgumentsPoolDecorator implements ArgumentsPoolInterface
 {
     /**
      * The delegate.
      *
-     * @var \Ellipse\Resolving\Pools\ArgumentsPoolInterface
+     * @var \Quanta\Injection\Pools\ArgumentsPoolInterface
      */
     private $delegate;
 
     /**
      * Set up an arguments pool decorator with the given delegate.
      *
-     * @param \Ellipse\Resolving\Pools\ArgumentsPoolInterface $delegate
+     * @param \Quanta\Injection\Pools\ArgumentsPoolInterface $delegate
      */
     public function __construct(ArgumentsPoolInterface $delegate)
     {
@@ -27,7 +27,7 @@ abstract class AbstractArgumentsPoolDecorator implements ArgumentsPoolInterface
      * Proxy the delegate.
      *
      * @param \ReflectionParameter[] $parameters
-     * @return \Ellipse\Resolving\ArgumentList
+     * @return \Quanta\Injection\ArgumentList
      */
     public function arguments(array $parameters): ArgumentList
     {

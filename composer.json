@@ -1,17 +1,17 @@
 {
-    "name": "ellipse/resolving",
+    "name": "quanta/injection",
     "type": "library",
-    "description": "Set of utilities for resolving callables and class instances",
+    "description": "Set of utilities for dependency injection",
     "keywords": [
         "psr-11",
         "container",
         "dependency-injection"
     ],
     "license": "MIT",
-    "homepage": "https://github.com/ellipsephp/resolving",
+    "homepage": "https://github.com/quanta/injection",
     "support": {
-        "issues": "https://github.com/ellipsephp/resolving/issues",
-        "source": "https://github.com/ellipsephp/resolving"
+        "issues": "https://github.com/quanta/injection/issues",
+        "source": "https://github.com/quanta/injection"
     },
     "authors": [
         {
@@ -29,7 +29,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Ellipse\\Resolving\\": "src"
+            "Quanta\\Injection\\": "src"
         }
     }
 }

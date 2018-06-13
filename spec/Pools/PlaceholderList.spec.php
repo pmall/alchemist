@@ -2,8 +2,8 @@
 
 require __DIR__ . '/../factories.php';
 
-use Ellipse\Resolving\Pools\ArgumentsPoolInterface;
-use Ellipse\Resolving\Pools\PlaceholderList;
+use Quanta\Injection\Pools\ArgumentsPoolInterface;
+use Quanta\Injection\Pools\PlaceholderList;
 
 describe('PlaceholderList', function () {
 

@@ -2,8 +2,8 @@
 
 use function Eloquent\Phony\mock;
 
-use Ellipse\Resolving\Exceptions\ResolvingExceptionInterface;
-use Ellipse\Resolving\Exceptions\ArgumentResolutionException;
+use Quanta\Injection\Exceptions\ResolvingExceptionInterface;
+use Quanta\Injection\Exceptions\ArgumentResolutionException;
 
 describe('ArgumentResolutionException', function () {
 

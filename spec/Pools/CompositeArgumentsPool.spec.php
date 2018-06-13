@@ -5,9 +5,9 @@ require __DIR__ . '/../factories.php';
 use function Eloquent\Phony\stub;
 use function Eloquent\Phony\mock;
 
-use Ellipse\Resolving\ArgumentList;
-use Ellipse\Resolving\Pools\ArgumentsPoolInterface;
-use Ellipse\Resolving\Pools\CompositeArgumentsPool;
+use Quanta\Injection\ArgumentList;
+use Quanta\Injection\Pools\ArgumentsPoolInterface;
+use Quanta\Injection\Pools\CompositeArgumentsPool;
 
 describe('CompositeArgumentsPool', function () {
 

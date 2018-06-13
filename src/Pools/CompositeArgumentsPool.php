@@ -1,22 +1,22 @@
 <?php declare(strict_types=1);
 
-namespace Ellipse\Resolving\Pools;
+namespace Quanta\Injection\Pools;
 
-use Ellipse\Resolving\ArgumentList;
+use Quanta\Injection\ArgumentList;
 
 final class CompositeArgumentsPool implements ArgumentsPoolInterface
 {
     /**
      * The list of arguments pools.
      *
-     * @var \Ellipse\Resolving\Pools\ArgumentsPoolInterface[]
+     * @var \Quanta\Injection\Pools\ArgumentsPoolInterface[]
      */
     private $pools;
 
     /**
      * Set up a composite arguments pool with the given list of arguments pools.
      *
-     * @param \Ellipse\Resolving\Pools\ArgumentsPoolInterface[] $pools
+     * @param \Quanta\Injection\Pools\ArgumentsPoolInterface[] $pools
      */
     public function __construct(array $pools)
     {
@@ -28,7 +28,7 @@ final class CompositeArgumentsPool implements ArgumentsPoolInterface
      * pools.
      *
      * @param \ReflectionParameter[] $parameters
-     * @return \Ellipse\Resolving\ArgumentList
+     * @return \Quanta\Injection\ArgumentList
      */
     public function arguments(array $parameters): ArgumentList
     {
@@ -45,7 +45,7 @@ final class CompositeArgumentsPool implements ArgumentsPoolInterface
     /**
      * Return the unbound parameters from the given list of parameters.
      *
-     * @param \Ellipse\Resolving\ArgumentList   $arguments
+     * @param \Quanta\Injection\ArgumentList    $arguments
      * @param \ReflectionParameter[]            $parameters
      * @return array
      */

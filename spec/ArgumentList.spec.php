@@ -5,9 +5,9 @@ require __DIR__ . '/factories.php';
 use function Eloquent\Phony\stub;
 use function Eloquent\Phony\mock;
 
-use Ellipse\Resolving\ArgumentList;
-use Ellipse\Resolving\Exceptions\ParameterBindingException;
-use Ellipse\Resolving\Exceptions\ArgumentResolutionException;
+use Quanta\Injection\ArgumentList;
+use Quanta\Injection\Exceptions\ParameterBindingException;
+use Quanta\Injection\Exceptions\ArgumentResolutionException;
 
 describe('ArgumentList', function () {
 

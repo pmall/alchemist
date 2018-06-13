@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace Ellipse\Resolving\Pools;
+namespace Quanta\Injection\Pools;
 
-use Ellipse\Resolving\ArgumentList;
+use Quanta\Injection\ArgumentList;
 
 final class NullValues implements ArgumentsPoolInterface
 {
@@ -10,7 +10,7 @@ final class NullValues implements ArgumentsPoolInterface
      * Bind the parameters to null when they are nullable.
      *
      * @param \ReflectionParameter[] $parameters
-     * @return \Ellipse\Resolving\ArgumentList
+     * @return \Quanta\Injection\ArgumentList
      */
     public function arguments(array $parameters): ArgumentList
     {

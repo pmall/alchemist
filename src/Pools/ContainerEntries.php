@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace Ellipse\Resolving\Pools;
+namespace Quanta\Injection\Pools;
 
 use Psr\Container\ContainerInterface;
 
-use Ellipse\Resolving\ArgumentList;
+use Quanta\Injection\ArgumentList;
 
 final class ContainerEntries implements ArgumentsPoolInterface
 {
@@ -30,7 +30,7 @@ final class ContainerEntries implements ArgumentsPoolInterface
      * class names as identifier.
      *
      * @param \ReflectionParameter[] $parameters
-     * @return \Ellipse\Resolving\ArgumentList
+     * @return \Quanta\Injection\ArgumentList
      */
     public function arguments(array $parameters): ArgumentList
     {

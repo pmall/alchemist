@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace Ellipse\Resolving\Pools;
+namespace Quanta\Injection\Pools;
 
-use Ellipse\Resolving\ArgumentList;
+use Quanta\Injection\ArgumentList;
 
 final class DefaultValues implements ArgumentsPoolInterface
 {
@@ -10,7 +10,7 @@ final class DefaultValues implements ArgumentsPoolInterface
      * Bind parameters to their default values when defined.
      *
      * @param \ReflectionParameter[] $parameters
-     * @return \Ellipse\Resolving\ArgumentList
+     * @return \Quanta\Injection\ArgumentList
      */
     public function arguments(array $parameters): ArgumentList
     {

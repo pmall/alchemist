@@ -5,9 +5,9 @@ require __DIR__ . '/../factories.php';
 use function Eloquent\Phony\mock;
 use function Eloquent\Phony\partialMock;
 
-use Ellipse\Resolving\ArgumentList;
-use Ellipse\Resolving\Pools\ArgumentsPoolInterface;
-use Ellipse\Resolving\Pools\AbstractArgumentsPoolDecorator;
+use Quanta\Injection\ArgumentList;
+use Quanta\Injection\Pools\ArgumentsPoolInterface;
+use Quanta\Injection\Pools\AbstractArgumentsPoolDecorator;
 
 describe('AbstractArgumentsPoolDecorator', function () {
 

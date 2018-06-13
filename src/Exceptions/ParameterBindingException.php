@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Ellipse\Resolving\Exceptions;
+namespace Quanta\Injection\Exceptions;
 
 use RuntimeException;
 use ReflectionParameter;

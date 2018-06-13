@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace Ellipse\Resolving\Pools;
+namespace Quanta\Injection\Pools;
 
-use Ellipse\Resolving\ArgumentList;
+use Quanta\Injection\ArgumentList;
 
 final class ValueMap implements ArgumentsPoolInterface
 {
@@ -28,7 +28,7 @@ final class ValueMap implements ArgumentsPoolInterface
      * Bind parameters to values associated with their names.
      *
      * @param \ReflectionParameter[] $parameters
-     * @return \Ellipse\Resolving\ArgumentList
+     * @return \Quanta\Injection\ArgumentList
      */
     public function arguments(array $parameters): ArgumentList
     {

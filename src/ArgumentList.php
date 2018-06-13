@@ -1,13 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace Ellipse\Resolving;
+namespace Quanta\Injection;
 
 use Throwable;
 use IteratorAggregate;
 use ReflectionParameter;
 
-use Ellipse\Resolving\Exceptions\ParameterBindingException;
-use Ellipse\Resolving\Exceptions\ArgumentResolutionException;
+use Quanta\Injection\Exceptions\ParameterBindingException;
+use Quanta\Injection\Exceptions\ArgumentResolutionException;
 
 final class ArgumentList implements IteratorAggregate
 {
@@ -47,7 +47,7 @@ final class ArgumentList implements IteratorAggregate
      *
      * @param \ReflectionParameter  $parameter
      * @param callable              $value
-     * @return \Ellipse\Resolving\ArgumentList
+     * @return \Quanta\Injection\ArgumentList
      */
     public function with(ReflectionParameter $parameter, callable $argument): ArgumentList
     {
@@ -75,8 +75,8 @@ final class ArgumentList implements IteratorAggregate
      *
      * @param \ReflectionParameter $parameter
      * @return mixed
-     * @throws \Ellipse\Resolving\Exceptions\ParameterBindingException
-     * @throws \Ellipse\Resolving\Exceptions\ArgumentResolutionException
+     * @throws \Quanta\Injection\Exceptions\ParameterBindingException
+     * @throws \Quanta\Injection\Exceptions\ArgumentResolutionException
      */
     public function argument(ReflectionParameter $parameter)
     {

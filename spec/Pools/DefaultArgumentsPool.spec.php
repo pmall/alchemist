@@ -6,8 +6,8 @@ use function Eloquent\Phony\mock;
 
 use Psr\Container\ContainerInterface;
 
-use Ellipse\Resolving\Pools\ArgumentsPoolInterface;
-use Ellipse\Resolving\Pools\DefaultArgumentsPool;
+use Quanta\Injection\Pools\ArgumentsPoolInterface;
+use Quanta\Injection\Pools\DefaultArgumentsPool;
 
 describe('DefaultArgumentsPool', function () {
 
